@@ -16,3 +16,10 @@ print(x)
 
 a = ['Hi', 'Hello', 'Hey']
 print(sorted(a, key=len))
+
+# And that's how key can work
+
+l = [28, 14, '28', 5, '9', '1', 0, 6, '23', 19]
+
+# This way it will consider str elems with digits as int digits!
+print(sorted(l, key=int))
