@@ -1,0 +1,32 @@
+import copy
+
+
+class Bus:
+    def __init__(self, passengers=None):
+        if passengers is None:
+            self.passengers = passengers
+        else:
+            self.passengers = list(passengers)
+
+    def pick(self, name):
+        self.passengers.append(name)
+
+    def drop(self, name):
+        self.passengers.remove(name)
+
+
+bus1 = Bus(['Alice', 'Bill', 'Claire', 'David'])
+bus2 = copy.copy(bus1)
+bus3 = copy.deepcopy(bus1)
+
+print(id(bus1), id(bus2), id(bus3))
+
+bus1.drop('Bill')
+print(bus2.passengers)
+
+print(id(bus1.passengers), id(bus2.passengers), id(bus3.passengers))
+print(bus3.passengers)
+
+# In surface copy passengers list in bus2 is a link to the passengers list in bus1
+# While deepcopy makes passengers list in bus3 a link to the different obj of list
+
